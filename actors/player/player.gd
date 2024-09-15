@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
+
 var is_sprinting: bool
+
 
 @export var normal_speed := 3.0
 @export var sprint_speed := 5.0
@@ -10,14 +12,18 @@ var is_sprinting: bool
 
 
 @onready var head: Node3D = $Head
-
+@onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move()
+
+
+func _process(_delta: float) -> void:
+	interaction_ray_cast.check_interaction()
 
 
 func move() -> void:
@@ -37,7 +43,7 @@ func move() -> void:
 	move_and_slide()
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_around(event.relative)
 
