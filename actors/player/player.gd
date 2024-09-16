@@ -14,16 +14,29 @@ var is_sprinting: bool
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 
+
+func _enter_tree() -> void:
+	EventSystem.PLA_freeze_player.connect(set_freeze.bind(true))
+	EventSystem.PLA_unfreeze_player.connect(set_freeze.bind(false))
+
+
+func set_freeze(value: bool) -> void:
+	set_process(!value)
+	set_physics_process(!value)
+	set_process_input(!value)
+	set_process_unhandled_key_input(!value)
+	
+	
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-
-func _physics_process(_delta: float) -> void:
-	move()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _process(_delta: float) -> void:
 	interaction_ray_cast.check_interaction()
+
+
+func _physics_process(_delta: float) -> void:
+	move()
 
 
 func move() -> void:
@@ -55,5 +68,5 @@ func look_around(relative: Vector2) -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event.is_action_pressed("open_crafting_menu"):
+		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.CraftingMenu)
