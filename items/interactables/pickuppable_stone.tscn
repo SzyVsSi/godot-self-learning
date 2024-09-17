@@ -9,6 +9,7 @@ radius = 0.0948919
 [node name="PickuppableStone" instance=ExtResource("1_6exq6")]
 
 [node name="Pickuppable" parent="." index="0"]
+item_key = 1
 prompt = "Pick up stone"
 
 [node name="CollisionShape3D" parent="Pickuppable" index="0"]
