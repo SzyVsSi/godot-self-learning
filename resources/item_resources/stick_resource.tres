@@ -8,4 +8,4 @@ script = ExtResource("1_wij7c")
 item_key = 0
 display_name = "Stick"
 icon = ExtResource("1_chtqt")
-description = "A brown stick"
+description = "A brown stick."
