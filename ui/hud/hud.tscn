@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://uqpufgvtq3le"]
+[gd_scene load_steps=4 format=3 uid="uid://uqpufgvtq3le"]
 
 [ext_resource type="Texture2D" uid="uid://bq353knqmk4ti" path="res://textures/circle32.png" id="1_0qc22"]
+[ext_resource type="Script" path="res://ui/hud/hot_bar_ui.gd" id="2_cqksy"]
+[ext_resource type="PackedScene" uid="uid://cgat4nqhbwmri" path="res://ui/custom_nodes/hot_bar_slot.tscn" id="2_vt3l2"]
 
 [node name="HUD" type="Control"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Crosshair" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(4, 4)
@@ -26,3 +30,51 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_0qc22")
 expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HotBarSlotContainer" type="HBoxContainer" parent="MarginContainer"]
+z_index = -1
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("2_cqksy")
+
+[node name="HotBarSlot" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot2" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot3" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot4" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot5" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot6" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot7" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot8" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
+
+[node name="HotBarSlot9" parent="MarginContainer/HotBarSlotContainer" instance=ExtResource("2_vt3l2")]
+layout_mode = 2
