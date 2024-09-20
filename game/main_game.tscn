@@ -11,9 +11,9 @@ script = ExtResource("1_laqud")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
+[node name="BulletinController" type="Node" parent="UILayer"]
+script = ExtResource("9_1cv4i")
+
 [node name="HUDController" type="Node" parent="UILayer"]
 
 [node name="HUD" parent="UILayer/HUDController" instance=ExtResource("8_072j2")]
-
-[node name="BulletinController" type="Node" parent="UILayer"]
-script = ExtResource("9_1cv4i")

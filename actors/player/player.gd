@@ -13,7 +13,7 @@ var is_sprinting: bool
 
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
-
+@onready var equippable_item_holder: Node3D = $Head/EquippableItemHolder
 
 func _enter_tree() -> void:
 	EventSystem.PLA_freeze_player.connect(set_freeze.bind(true))
@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	move()
+	attack_or_use()
 
 
 func move() -> void:
@@ -54,6 +55,11 @@ func move() -> void:
 	velocity.z = direction.z * speed
 	velocity.x = direction.x * speed
 	move_and_slide()
+
+
+func attack_or_use() -> void:
+	if Input.is_action_just_pressed("use_item"):
+		equippable_item_holder.try_to_use_item()
 
 
 func _input(event: InputEvent) -> void:

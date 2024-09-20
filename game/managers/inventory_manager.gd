@@ -1,5 +1,5 @@
 extends Node
-
+class_name InventoryManager
 
 const INVENTORY_SIZE := 28
 const HOTBAR_SIZE := 9
@@ -50,7 +50,7 @@ func delete_crafting_blueprint_costs(costs: Array[BlueprintCostData]) -> void:
 			delete_item(cost.item_key)
 
 
-func delete_item(item_key: ItemConfig.Keys) -> void:	
+func delete_item(item_key: ItemConfig.Keys) -> void:
 	if not inventory.has(item_key):
 		return
 	
