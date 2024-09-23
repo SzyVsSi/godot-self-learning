@@ -51,7 +51,7 @@ func move() -> void:
 
 	var speed := sprint_speed if is_sprinting else normal_speed
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	velocity.z = direction.z * speed
 	velocity.x = direction.x * speed
 	move_and_slide()
@@ -70,7 +70,7 @@ func _input(event: InputEvent) -> void:
 func look_around(relative: Vector2) -> void:
 	rotate_y(-relative.x * mouse_sensitivity)
 	head.rotate_x(-relative.y * mouse_sensitivity)
-	head.rotation_degrees.x = clampf(head.rotation_degrees.x, -90, 90)
+	head.rotation.x = clampf(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

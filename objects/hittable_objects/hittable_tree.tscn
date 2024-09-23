@@ -26,7 +26,7 @@ shape = SubResource("ConcavePolygonShape3D_j3b1g")
 transform = Transform3D(-0.82028, -0.0905049, -0.564756, 0.55237, -0.381571, -0.741142, -0.148417, -0.919898, 0.362987, 0, 0.605024, 0)
 
 [node name="Marker3D2" type="Marker3D" parent="ItemSpawnPoints" index="1"]
-transform = Transform3D(0.540499, 0.689468, -0.482177, -0.514495, 0.724316, 0.458978, 0.665699, 0, 0.74622, 0, 169.139, 0)
+transform = Transform3D(0.540499, 0.689468, -0.482177, -0.514495, 0.724316, 0.458978, 0.665699, 0, 0.74622, 0, 1.76, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06486, -0.00810862)
@@ -42,5 +42,3 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResidueStaticBody" index="1"]
 shape = SubResource("ConvexPolygonShape3D_5n81p")
-
-[connection signal="register_hit" from="Hitbox" to="." method="register_hit"]

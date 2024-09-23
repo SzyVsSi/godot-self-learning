@@ -19,7 +19,7 @@ signal PLA_unfreeze_player
 
 signal EQU_hotkey_pressed(hotkey: int)
 signal EQU_equip_item(key: ItemConfig.Keys)
-signal EQU_unequip_item()
+signal EQU_unequip_item
 signal EQU_active_hotbar_slot_changed(slot: Variant)
 
 
