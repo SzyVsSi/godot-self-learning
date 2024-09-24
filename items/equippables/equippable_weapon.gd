@@ -26,3 +26,7 @@ func check_hit() -> void:
 
   if not result.is_empty():
     result.collider.take_hit(weapon_item_resource)
+
+
+func change_energy() -> void:
+  EventSystem.PLA_change_energy.emit(weapon_item_resource.energy_change_per_use)

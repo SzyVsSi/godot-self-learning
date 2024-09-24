@@ -9,6 +9,7 @@ var is_sprinting: bool
 @export var jump_velocity := 4.0
 @export var gravity := 0.2
 @export var mouse_sensitivity := 0.005
+@export var walking_energy_cost_per_1m := -0.05
 
 
 @onready var head: Node3D = $Head
@@ -35,8 +36,9 @@ func _process(_delta: float) -> void:
 	interaction_ray_cast.check_interaction()
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	move()
+	check_walking_energy_change(delta)
 	attack_or_use()
 
 
@@ -55,6 +57,12 @@ func move() -> void:
 	velocity.z = direction.z * speed
 	velocity.x = direction.x * speed
 	move_and_slide()
+
+
+func check_walking_energy_change(delta: float) -> void:
+	if velocity.x or velocity.z:
+		var energy_cost = walking_energy_cost_per_1m * delta * Vector2(velocity.z, velocity.x).length()
+		EventSystem.PLA_change_energy.emit(energy_cost)
 
 
 func attack_or_use() -> void:
