@@ -17,6 +17,8 @@ signal PLA_freeze_player
 signal PLA_unfreeze_player
 signal PLA_change_energy(energy_change: float)
 signal PLA_update_energy(max_energy: float, current_energy: float)
+signal PLA_change_health(health_change: float)
+signal PLA_update_health(max_health: float, current_health: float)
 
 
 signal EQU_hotkey_pressed(hotkey: int)

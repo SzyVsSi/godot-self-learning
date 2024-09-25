@@ -1,0 +1,7 @@
+{
+  "godotTools.editorPath.godot4": "/snap/bin/godot-4",
+  "godotTools.lsp.headless": true,
+  "godotTools.inlayHints.gdscript": true,
+  "editor.defaultFormatter": "geequlim.godot-tools",
+  "notebook.defaultFormatter": "geequlim.godot-tools"
+}
