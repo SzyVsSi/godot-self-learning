@@ -19,7 +19,7 @@ func change_energy(energy_change: float) -> void:
 
   var out_of_energy = is_zero_approx(current_energy)
   if out_of_energy: change_health(energy_change)
-  EventSystem.PLA_update_energy.emit(MAX_ENERGY, float(0) if out_of_energy else current_energy)
+  EventSystem.PLA_update_energy.emit(MAX_ENERGY, 0.0 if out_of_energy else current_energy)
 
 
 func change_health(health_change: float) -> void:

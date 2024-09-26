@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://bkma48f6ag2n1"]
+
+[ext_resource type="Texture2D" uid="uid://4c4tubjatq8t" path="res://textures/item_icons/mushroom.png" id="1_77jod"]
+[ext_resource type="Script" path="res://resources/item_resources/consumable_item_resource.gd" id="1_tbgqf"]
+
+[resource]
+script = ExtResource("1_tbgqf")
+health_change = -5.0
+energy_change = 10.0
+item_key = 3
+display_name = "Mushroom"
+icon = ExtResource("1_77jod")
+is_equippable = true
+description = "A weirdly mushroom"

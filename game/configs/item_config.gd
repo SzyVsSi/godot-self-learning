@@ -46,7 +46,8 @@ const ITEM_RESOURCE_PATHS := {
 	Keys.Plant: 'res://resources/item_resources/plant_resource.tres',
 	Keys.Axe: "res://resources/item_resources/axe_resource.tres",
 	Keys.Rope: "res://resources/item_resources/rope_resource.tres",
-	Keys.Log: "res://resources/item_resources/log_resource.tres"
+	Keys.Log: "res://resources/item_resources/log_resource.tres",
+	Keys.Mushroom: "res://resources/item_resources/mushroom_item_resource.tres"
 }
 
 
@@ -65,7 +66,8 @@ static func get_crafting_blueprint_resource(key: Keys) -> CraftingBlueprintResou
 
 
 const EQUIPPABLE_ITEM_PATHS := {
-	Keys.Axe: "res://items/equippables/equippable_axe.tscn"
+	Keys.Axe: "res://items/equippables/equippable_axe.tscn",
+	Keys.Mushroom: "res://items/equippables/equippable_mushroom.tscn"
 }
 
 

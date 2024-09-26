@@ -15,6 +15,7 @@ func _enter_tree() -> void:
 	EventSystem.INV_switch_two_item_indexes.connect(switch_two_item_indexes)
 	EventSystem.INV_add_item.connect(add_item)
 	EventSystem.INV_delete_crafting_blueprint_costs.connect(delete_crafting_blueprint_costs)
+	EventSystem.INV_delete_item_by_index.connect(delete_item_by_index)
 	
 
 func _ready() -> void:
@@ -83,3 +84,13 @@ func switch_two_item_indexes(first: int, first_is_in_hot_bar: bool, second: int,
 
 	send_inventory()
 	send_hotbar()
+
+
+func delete_item_by_index(index: int, is_in_hotbar: bool) -> void:
+	if is_in_hotbar:
+		hotbar[index] = null
+		send_hotbar()
+		return
+
+	inventory[index] = null
+	send_inventory()
