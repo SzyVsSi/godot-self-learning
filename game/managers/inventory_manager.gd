@@ -24,6 +24,7 @@ func _ready() -> void:
 
 	# TODO: DELETE ME LATER
 	inventory[0] = ItemConfig.Keys.Axe
+	inventory[1] = ItemConfig.Keys.Pickaxe
 
 
 func try_to_pickup_item(item_key: ItemConfig.Keys, destroy_pickuppable: Callable) -> void:

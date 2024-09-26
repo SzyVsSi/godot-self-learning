@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ja7k3igbpb2p"]
+
+[ext_resource type="Texture2D" uid="uid://ch3yvrled2ybd" path="res://textures/item_icons/coal.png" id="1_7e3mt"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_ld57l"]
+
+[resource]
+script = ExtResource("2_ld57l")
+item_key = 6
+display_name = "Coal"
+icon = ExtResource("1_7e3mt")
+is_equippable = false
+description = "Coal, for real gamers"
