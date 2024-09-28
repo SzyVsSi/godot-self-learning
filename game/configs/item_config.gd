@@ -49,7 +49,8 @@ const ITEM_RESOURCE_PATHS := {
 	Keys.Rope: "res://resources/item_resources/rope_resource.tres",
 	Keys.Log: "res://resources/item_resources/log_resource.tres",
 	Keys.Mushroom: "res://resources/item_resources/mushroom_item_resource.tres",
-	Keys.Coal: "res://resources/item_resources/coal_resource.tres"
+	Keys.Coal: "res://resources/item_resources/coal_resource.tres",
+	Keys.RawMeat: "res://resources/item_resources/raw_meat_resource.tres"
 }
 
 
@@ -81,7 +82,8 @@ static func get_equippable_item(key: Keys) -> PackedScene:
 
 const PICKUPPABLE_ITEM_PATHS := {
 	Keys.Log: "res://items/interactables/rigid_pickuppable_log.tscn",
-	Keys.Coal: "res://items/interactables/rigid_pickuppable_coal.tscn"
+	Keys.Coal: "res://items/interactables/rigid_pickuppable_coal.tscn",
+	Keys.RawMeat: "res://items/interactables/rigid_pickuppable_raw_meat.tscn"
 }
 
 
