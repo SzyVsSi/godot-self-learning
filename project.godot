@@ -45,7 +45,7 @@ enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 
 [global_group]
 
-HotBarSlots=""
+Player=""
 
 [input]
 
