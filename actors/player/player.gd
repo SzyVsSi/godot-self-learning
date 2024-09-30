@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 
 var is_sprinting: bool
@@ -15,6 +16,7 @@ var is_sprinting: bool
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 @onready var equippable_item_holder: Node3D = %EquippableItemHolder
+
 
 func _enter_tree() -> void:
 	EventSystem.PLA_freeze_player.connect(set_freeze.bind(true))

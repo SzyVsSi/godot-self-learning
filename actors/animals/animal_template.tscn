@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddd57ope8ggw7"]
+[gd_scene load_steps=12 format=3 uid="uid://ddd57ope8ggw7"]
 
 [ext_resource type="PackedScene" uid="uid://b4ugm1f3h1out" path="res://objects/hitbox/hitbox.tscn" id="1_51lwh"]
 [ext_resource type="Script" path="res://actors/animals/animal.gd" id="1_i3o2h"]
+[ext_resource type="Script" path="res://game/state/state_machine.gd" id="3_gm2wl"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_idle.gd" id="4_fo216"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_hurt.gd" id="5_4530r"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_wander.gd" id="6_dn4xd"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_dead.gd" id="7_0l005"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_attack.gd" id="8_oy3c4"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_flee.gd" id="9_wmwlh"]
+[ext_resource type="Script" path="res://actors/animals/states/animal_chase.gd" id="10_ye4i7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f845j"]
 
@@ -15,23 +23,6 @@ script = ExtResource("1_i3o2h")
 [node name="Hitbox" parent="." instance=ExtResource("1_51lwh")]
 
 [node name="Timers" type="Node" parent="."]
-
-[node name="IdleTimer" type="Timer" parent="Timers"]
-unique_name_in_owner = true
-one_shot = true
-autostart = true
-
-[node name="WanderTimer" type="Timer" parent="Timers"]
-unique_name_in_owner = true
-one_shot = true
-
-[node name="DisappearAfterDeathTimer" type="Timer" parent="Timers"]
-unique_name_in_owner = true
-one_shot = true
-
-[node name="FleeTimer" type="Timer" parent="Timers"]
-unique_name_in_owner = true
-one_shot = true
 
 [node name="MeatSpawnMarker" type="Marker3D" parent="."]
 
@@ -52,10 +43,47 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
 shape = SubResource("SphereShape3D_f845j")
 
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_gm2wl")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_fo216")
+
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
+autostart = true
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("5_4530r")
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("6_dn4xd")
+
+[node name="WanderTimer" type="Timer" parent="StateMachine/Wander"]
+one_shot = true
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("7_0l005")
+
+[node name="DisappearAfterDeathTimer" type="Timer" parent="StateMachine/Dead"]
+one_shot = true
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("8_oy3c4")
+
+[node name="Flee" type="Node" parent="StateMachine"]
+script = ExtResource("9_wmwlh")
+
+[node name="FleeTimer" type="Timer" parent="StateMachine/Flee"]
+one_shot = true
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("10_ye4i7")
+
 [connection signal="register_hit" from="Hitbox" to="." method="take_hit"]
-[connection signal="timeout" from="Timers/IdleTimer" to="." method="_on_idle_timer_timeout"]
-[connection signal="timeout" from="Timers/WanderTimer" to="." method="_on_wander_timer_timeout"]
-[connection signal="timeout" from="Timers/DisappearAfterDeathTimer" to="." method="_on_disappear_after_death_timer_timeout"]
-[connection signal="timeout" from="Timers/FleeTimer" to="." method="_on_flee_timer_timeout"]
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
 [connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]
+[connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Wander/WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Dead/DisappearAfterDeathTimer" to="StateMachine/Dead" method="_on_disappear_after_death_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Flee/FleeTimer" to="StateMachine/Flee" method="_on_flee_timer_timeout"]

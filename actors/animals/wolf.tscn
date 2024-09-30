@@ -5041,12 +5041,11 @@ _data = {
 
 [node name="Wolf" instance=ExtResource("1_yqcgn")]
 hittable_object_attributes = ExtResource("2_sgqqp")
-normal_speed = 0.9
 running_speed = 2.5
 idle_animations = Array[String](["Idle", "Idle_2", "Idle_2_HeadLow", "Eating"])
 hurt_animations = Array[String](["Idle_HitReact1", "Idle_HitReact2"])
-fleeing_time = 3.0
 is_aggressive = true
+attack_distance = 1.5
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.19, 0)
@@ -5063,7 +5062,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514139, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000523202, 0.672989, -0.623872)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackHitArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613931, -0.815938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.614, -1)
 shape = SubResource("SphereShape3D_41jxs")
 
 [node name="wolf" type="Node3D" parent="." index="7"]
@@ -5439,3 +5438,6 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_db2pk")
 }
+
+[node name="StateMachine" parent="." index="9" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")
