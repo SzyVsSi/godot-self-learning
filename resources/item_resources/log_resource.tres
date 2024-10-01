@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_wh8gi")
 item_key = 5
-display_name = "Wood"
+display_name = "Log"
 icon = ExtResource("1_te8yy")
 is_equippable = false
 description = "Stiff wood ;)"
