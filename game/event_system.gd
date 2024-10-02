@@ -13,6 +13,7 @@ signal INV_switch_two_item_indexes(first: int, firstCondition: bool, second: int
 signal INV_add_item(key: ItemConfig.Keys)
 signal INV_delete_crafting_blueprint_costs
 signal INV_delete_item_by_index(index: int, is_in_hotbar: bool)
+signal INV_add_item_by_index(item_key: ItemConfig.Keys, index: int, is_in_hotbar: bool)
 
 
 signal PLA_freeze_player
