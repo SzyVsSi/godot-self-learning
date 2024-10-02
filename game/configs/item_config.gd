@@ -56,6 +56,7 @@ const ITEM_RESOURCE_PATHS := {
 	Keys.Rope: "res://resources/item_resources/rope_resource.tres",
 	Keys.Torch: "res://resources/item_resources/torch_resource.tres",
 	Keys.Tent: "res://resources/item_resources/tent_resource.tres",
+	Keys.Campfire: "res://resources/item_resources/campfire_resource.tres",
 	
 	# Food
 	Keys.Fruit: "res://resources/item_resources/fruit_item_resource.tres",
@@ -87,7 +88,8 @@ const EQUIPPABLE_ITEM_PATHS := {
 	Keys.Axe: "res://items/equippables/equippable_axe.tscn",
 	Keys.Pickaxe: "res://items/equippables/equippable_pickaxe.tscn",
 	Keys.Mushroom: "res://items/equippables/equippable_mushroom.tscn",
-	Keys.Tent: "res://items/equippables/equippable_tent.tscn"
+	Keys.Tent: "res://items/equippables/equippable_tent.tscn",
+	Keys.Campfire: "res://items/equippables/equippable_campfire.tscn"
 }
 
 
@@ -108,6 +110,7 @@ static func get_pickuppable_item(key: Keys) -> PackedScene:
 
 const CONSTRUCTABLE_SCENES := {
 	Keys.Tent: "res://objects/constructables/constructable_tent.tscn",
+	Keys.Campfire: "res://objects/constructables/constructable_campfire.tscn"
 }
 
 

@@ -21,7 +21,7 @@ var is_constructing := false
 func _ready() -> void:
   constructable_area.rotation = Vector3.ZERO
   constructable_preview_mesh.mesh = mesh_holder.get_child(0).mesh.duplicate()
-  constructable_area_collision_shape.shape = constructable_preview_mesh.mesh.create_convex_shape(true, true) # TODO: TEST ME LATER
+  constructable_area_collision_shape.shape = constructable_preview_mesh.mesh.create_convex_shape(true, true)
   set_preview_material(INVALID_MATERIAL)
 
 

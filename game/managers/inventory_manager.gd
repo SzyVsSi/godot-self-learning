@@ -26,6 +26,7 @@ func _ready() -> void:
 	inventory[0] = ItemConfig.Keys.Axe
 	inventory[1] = ItemConfig.Keys.Pickaxe
 	inventory[2] = ItemConfig.Keys.Tent
+	inventory[3] = ItemConfig.Keys.Campfire
 
 
 func try_to_pickup_item(item_key: ItemConfig.Keys, destroy_pickuppable: Callable) -> void:
