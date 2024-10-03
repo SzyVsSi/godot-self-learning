@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CraftingBlueprintResource" load_steps=8 format=3 uid="uid://cdjyy0unh06b3"]
+
+[ext_resource type="Script" path="res://resources/crafting_blueprint_resources/blueprint_cost_data.gd" id="1_05vfu"]
+[ext_resource type="Script" path="res://resources/crafting_blueprint_resources/crafting_blueprint_resource.gd" id="2_ejhhm"]
+
+[sub_resource type="Resource" id="Resource_7ujt4"]
+script = ExtResource("1_05vfu")
+item_key = 0
+amount = 1
+
+[sub_resource type="Resource" id="Resource_jt8su"]
+script = ExtResource("1_05vfu")
+item_key = 1
+amount = 1
+
+[sub_resource type="Resource" id="Resource_f40ks"]
+script = ExtResource("1_05vfu")
+item_key = 7
+amount = 1
+
+[sub_resource type="Resource" id="Resource_kqo0v"]
+script = ExtResource("1_05vfu")
+item_key = 8
+amount = 1
+
+[sub_resource type="Resource" id="Resource_os45e"]
+script = ExtResource("1_05vfu")
+item_key = 6
+amount = 1
+
+[resource]
+script = ExtResource("2_ejhhm")
+item_key = 13
+costs = Array[ExtResource("1_05vfu")]([SubResource("Resource_7ujt4"), SubResource("Resource_jt8su"), SubResource("Resource_f40ks"), SubResource("Resource_kqo0v"), SubResource("Resource_os45e")])
+needs_multitool = false
+needs_tinderbox = false

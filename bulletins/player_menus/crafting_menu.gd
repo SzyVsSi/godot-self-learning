@@ -50,14 +50,25 @@ func crafting_button_pressed(item_key: ItemConfig.Keys) -> void:
 
 func update_inventory(inventory: Array) -> void:
 	super(inventory)
-	
+	update_craft_button_disables(inventory)
+
+
+func update_craft_button_disables(inventory: Array) -> void:
 	for crafting_button in crafting_button_container.get_children():
-		var costs := ItemConfig.get_crafting_blueprint_resource(crafting_button.item_key).costs
+		var crafting_blueprint := ItemConfig.get_crafting_blueprint_resource(crafting_button.item_key)
 		var disable_button := false
-		
-		for cost_data in costs:
-			if inventory.count(cost_data.item_key) < cost_data.amount:
-				disable_button = true
-				break
+
+		# Disable if we don't have multitool or tinderbox
+		if crafting_blueprint.needs_multitool and not ItemConfig.Keys.Multitool in inventory:
+			disable_button = true
+		elif crafting_blueprint.needs_tinderbox and not ItemConfig.Keys.Tinderbox in inventory:
+			disable_button = true
+
+		# Disable if we don't have enough resources
+		else:
+			for cost_data in crafting_blueprint.costs:
+				if inventory.count(cost_data.item_key) < cost_data.amount:
+					disable_button = true
+					break
 		
 		crafting_button.button.disabled = disable_button

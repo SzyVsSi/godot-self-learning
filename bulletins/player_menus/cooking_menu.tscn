@@ -16,7 +16,8 @@ bg_color = Color(0, 0, 0, 0.235294)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anbdw"]
 bg_color = Color(0, 0, 0, 0.352941)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aeb5o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o78ik"]
+bg_color = Color(0.4, 0.290196, 0.176471, 0.784314)
 
 [node name="CookingMenu" instance=ExtResource("1_wlo4m")]
 script = ExtResource("2_cekgk")
@@ -47,6 +48,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.005
 nine_patch_stretch = true
 texture_under = ExtResource("3_a24bl")
 texture_progress = ExtResource("3_a24bl")
@@ -59,6 +62,7 @@ layout_mode = 2
 script = ExtResource("5_xia73")
 
 [node name="CookButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(196, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -67,6 +71,8 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hd6qy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hukrq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_anbdw")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_aeb5o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o78ik")
 disabled = true
 text = "Cook"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/CookButton" to="." method="start_cooking"]

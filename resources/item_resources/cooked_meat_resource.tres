@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_r25p5")
-health_change = 12.5
+health_change = 25.0
 energy_change = 5.0
 item_key = 9
 display_name = "Cooked meat"

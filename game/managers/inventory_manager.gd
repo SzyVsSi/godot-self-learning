@@ -28,6 +28,8 @@ func _ready() -> void:
 	inventory[1] = ItemConfig.Keys.Pickaxe
 	inventory[2] = ItemConfig.Keys.Tent
 	inventory[3] = ItemConfig.Keys.Campfire
+	inventory[4] = ItemConfig.Keys.RawMeat
+	inventory[5] = ItemConfig.Keys.Torch
 
 
 func try_to_pickup_item(item_key: ItemConfig.Keys, destroy_pickuppable: Callable) -> void:
