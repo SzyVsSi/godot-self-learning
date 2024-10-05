@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b2ohwqativ56y"]
+[gd_scene load_steps=68 format=3 uid="uid://b2ohwqativ56y"]
 
 [ext_resource type="PackedScene" uid="uid://bs51i61npjbv" path="res://meshes/terrain.tscn" id="1_o8hhi"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="2_xmcsl"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="9_vk6n4"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_yc1gn"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_ttoej"]
+[ext_resource type="Shader" uid="uid://bbcgblm261h1f" path="res://resources/water_shader.res" id="13_gq7ru"]
 [ext_resource type="PackedScene" uid="uid://di0j3u5s663w6" path="res://actors/animals/cow.tscn" id="15_uu4pr"]
 [ext_resource type="PackedScene" uid="uid://31fdil00oqjw" path="res://actors/animals/wolf.tscn" id="16_lsoim"]
 
@@ -245,13 +246,16 @@ stack = Array[ExtResource("4_53dx0")]([SubResource("Resource_dwojx"), SubResourc
 script = ExtResource("11_ttoej")
 size = Vector3(88.0502, 10.516, 129.014)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4d8h0"]
-transparency = 1
-albedo_color = Color(0.36934, 0.713039, 0.806128, 0.752941)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfumg"]
+render_priority = 0
+shader = ExtResource("13_gq7ru")
+shader_parameter/ColorParameter = Color(0.196078, 0.509804, 0.752941, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4ujht"]
-material = SubResource("StandardMaterial3D_4d8h0")
-size = Vector2(2000, 2000)
+material = SubResource("ShaderMaterial_rfumg")
+size = Vector2(1000, 1000)
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxow6"]
 sky_top_color = Color(0.32549, 0.878431, 1, 1)
