@@ -65,6 +65,7 @@ func try_to_construct() -> void:
   set_process(false)
   EventSystem.SPA_spawn_scene.emit(ItemConfig.get_constructable_scene(constructable_item_key), constructable_area.global_transform)
   is_constructing = true
+  EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.Build)
 
 
 func destroy_self() -> void:

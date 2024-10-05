@@ -13,4 +13,5 @@ func start_interaction() -> void:
 
 
 func destroy_self() -> void:
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.ItemPickup)
 	parent.queue_free()

@@ -12,4 +12,5 @@ func consume() -> void:
 
 
 func destroy_self() -> void:
+  EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.Eat)
   EventSystem.EQU_unequip_item.emit()

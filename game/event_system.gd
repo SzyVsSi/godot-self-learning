@@ -32,3 +32,6 @@ signal EQU_delete_equipped_item()
 
 
 signal SPA_spawn_scene(scene: PackedScene, transform: Transform3D)
+
+
+signal SFX_play_sfx(sfx_key: SFXConfig.Keys)
