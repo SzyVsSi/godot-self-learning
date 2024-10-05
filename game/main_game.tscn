@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpjadu1r1g8cs"]
+[gd_scene load_steps=5 format=3 uid="uid://cpjadu1r1g8cs"]
 
 [ext_resource type="Script" path="res://game/managers/stage_controller.gd" id="1_laqud"]
+[ext_resource type="Script" path="res://game/managers/music_controller.gd" id="4_7w653"]
 [ext_resource type="PackedScene" uid="uid://uqpufgvtq3le" path="res://ui/hud/hud.tscn" id="8_072j2"]
 [ext_resource type="Script" path="res://game/managers/bulletin_controller.gd" id="9_1cv4i"]
 
@@ -8,6 +9,9 @@
 
 [node name="StageController" type="Node" parent="."]
 script = ExtResource("1_laqud")
+
+[node name="MusicController" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_7w653")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
