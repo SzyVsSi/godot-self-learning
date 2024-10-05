@@ -18,6 +18,7 @@ var player_in_vision_range := false
 @export var damage := 20.0
 @export var vision_range := 15.0
 @export var vision_fov := 80.0
+@export var attack_audio_key := SFXConfig.Keys.WolfAttack
 
 
 @onready var state_machine: Node = $StateMachine
@@ -87,6 +88,10 @@ func player_in_los() -> bool:
 	var result := space_state.intersect_ray(query_params)
 
 	return result.is_empty()
+
+
+func play_attack_audio() -> void:
+	EventSystem.SFX_play_dynamic_sfx.emit(attack_audio_key, global_position)
 
 
 func _on_vision_area_body_entered(body: Node3D) -> void:

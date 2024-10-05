@@ -66,3 +66,6 @@ script = ExtResource("4_22hja")
 
 [node name="PlayerStatsManager" type="Node" parent="Managers"]
 script = ExtResource("7_hkp21")
+
+[node name="FootstepAudioTimer" type="Timer" parent="."]
+one_shot = true

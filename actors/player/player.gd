@@ -3,6 +3,7 @@ class_name Player
 
 
 var is_sprinting: bool
+var is_grounded := true
 
 
 @export var normal_speed := 3.0
@@ -11,11 +12,14 @@ var is_sprinting: bool
 @export var gravity := 0.2
 @export var mouse_sensitivity := 0.005
 @export var walking_energy_cost_per_1m := -0.05
+@export var walking_footstep_audio_interval := 0.6
+@export var sprinting_footstep_audio_interval := 0.3
 
 
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 @onready var equippable_item_holder: Node3D = %EquippableItemHolder
+@onready var footstep_audio_timer: Timer = $FootstepAudioTimer
 
 
 func _enter_tree() -> void:
@@ -47,11 +51,22 @@ func _physics_process(delta: float) -> void:
 func move() -> void:
 	if is_on_floor():
 		is_sprinting = Input.is_action_pressed("sprint")
+
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump_velocity
+
+		if velocity != Vector3.ZERO and footstep_audio_timer.is_stopped():
+			EventSystem.SFX_play_dynamic_sfx.emit(SFXConfig.Keys.Footstep, global_position, 0.25)
+			footstep_audio_timer.start(walking_footstep_audio_interval if not is_sprinting else sprinting_footstep_audio_interval)
+
+		if not is_grounded:
+			is_grounded = true
+			EventSystem.SFX_play_dynamic_sfx.emit(SFXConfig.Keys.JumpLand, global_position, 0.2)
 	else:
 		velocity.y -= gravity
 		is_sprinting = false
+		if is_grounded:
+			is_grounded = false
 
 	var speed := sprint_speed if is_sprinting else normal_speed
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")

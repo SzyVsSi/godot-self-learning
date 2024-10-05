@@ -35,3 +35,4 @@ signal SPA_spawn_scene(scene: PackedScene, transform: Transform3D)
 
 
 signal SFX_play_sfx(sfx_key: SFXConfig.Keys)
+signal SFX_play_dynamic_sfx(sfx_key: SFXConfig.Keys, position: Vector3, pitch_rand: float)
