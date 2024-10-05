@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm4kj6f4qu3sb"]
+[gd_scene load_steps=15 format=3 uid="uid://bm4kj6f4qu3sb"]
 
 [ext_resource type="PackedScene" uid="uid://ch3g4n54cja1y" path="res://items/equippables/equippable_weapon_template.tscn" id="1_kkxcb"]
 [ext_resource type="PackedScene" uid="uid://d3x40vu80bs1x" path="res://meshes/torch.tscn" id="3_1taft"]
+[ext_resource type="AudioStream" uid="uid://bsakhvsmarfus" path="res://audio/sfx/torch.wav" id="3_6ytbl"]
 
 [sub_resource type="Animation" id="Animation_bqg4x"]
 length = 0.001
@@ -158,3 +159,8 @@ draw_pass_1 = SubResource("QuadMesh_d6xkv")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
 layers = 2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("3_6ytbl")
+autoplay = true
+bus = &"SFX"
