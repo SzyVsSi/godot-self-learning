@@ -22,6 +22,7 @@ signal PLA_change_energy(energy_change: float)
 signal PLA_update_energy(max_energy: float, current_energy: float)
 signal PLA_change_health(health_change: float)
 signal PLA_update_health(max_health: float, current_health: float)
+signal PLA_player_sleep
 
 
 signal EQU_hotkey_pressed(hotkey: int)
@@ -36,3 +37,8 @@ signal SPA_spawn_scene(scene: PackedScene, transform: Transform3D)
 
 signal SFX_play_sfx(sfx_key: SFXConfig.Keys)
 signal SFX_play_dynamic_sfx(sfx_key: SFXConfig.Keys, position: Vector3, pitch_rand: float)
+
+
+signal GAM_fast_forward_day_night_anim(time_in_hours: float)
+signal GAM_game_fade_in(fade_time: float, callback: Callable)
+signal GAM_game_fade_out(fade_time: float, callback: Callable)

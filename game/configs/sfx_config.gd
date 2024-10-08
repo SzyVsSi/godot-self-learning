@@ -15,7 +15,8 @@ enum Keys {
   WolfHurt,
   WolfAttack,
   Footstep,
-  JumpLand
+  JumpLand,
+  GoInTent
 }
 
 
@@ -33,7 +34,8 @@ const FILE_PATHS := {
   Keys.WolfHurt: "res://audio/sfx/wolf_hurt.wav",
   Keys.WolfAttack: "res://audio/sfx/wolf_attack.wav",
   Keys.Footstep: "res://audio/sfx/footstep.wav",
-  Keys.JumpLand: "res://audio/sfx/jump_land.wav"
+  Keys.JumpLand: "res://audio/sfx/jump_land.wav",
+  Keys.GoInTent: "res://audio/sfx/go_in_tent.wav",
 }
 
 
