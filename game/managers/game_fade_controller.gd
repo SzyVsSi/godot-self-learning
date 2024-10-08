@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	EventSystem.GAM_game_fade_out.connect(fade_out)
 
 
-func fade_in(fade_time: float, callback = null) -> void:
+func fade_in(fade_time: float, callback) -> void:
 	var tween := create_tween()
 	tween.tween_property(self, "color", Color.BLACK, fade_time)
 	tween.parallel().tween_method(set_master_volume, 1.0, 0.0, fade_time)

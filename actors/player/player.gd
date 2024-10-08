@@ -27,16 +27,21 @@ func _enter_tree() -> void:
 	EventSystem.PLA_unfreeze_player.connect(set_freeze.bind(false))
 
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	EventSystem.HUD_show_hud.emit()
+
+
+func _exit_tree() -> void:
+	EventSystem.HUD_hide_hud.emit()
+
+
 func set_freeze(value: bool) -> void:
 	set_process(!value)
 	set_physics_process(!value)
 	set_process_input(!value)
 	set_process_unhandled_key_input(!value)
 	
-	
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 
 func _process(_delta: float) -> void:
 	interaction_ray_cast.check_interaction()

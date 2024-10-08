@@ -39,6 +39,16 @@ signal SFX_play_sfx(sfx_key: SFXConfig.Keys)
 signal SFX_play_dynamic_sfx(sfx_key: SFXConfig.Keys, position: Vector3, pitch_rand: float)
 
 
+signal MUS_play_music(music_key: MusicConfig.Keys)
+
+
 signal GAM_fast_forward_day_night_anim(time_in_hours: float)
 signal GAM_game_fade_in(fade_time: float, callback: Callable)
 signal GAM_game_fade_out(fade_time: float, callback: Callable)
+
+
+signal HUD_hide_hud
+signal HUD_show_hud
+
+
+signal STA_change_stage(stage_key: StageConfig.Keys)

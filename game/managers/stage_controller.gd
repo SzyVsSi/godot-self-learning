@@ -1,8 +1,12 @@
 extends Node
 
 
+func _enter_tree() -> void:
+	EventSystem.STA_change_stage.connect(change_stage)
+
+
 func _ready() -> void:
-	change_stage(StageConfig.Keys.Island)
+	change_stage(StageConfig.Keys.MainMenu)
 
 
 func change_stage(key: StageConfig.Keys) -> void:

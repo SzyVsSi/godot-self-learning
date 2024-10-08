@@ -2,11 +2,13 @@ class_name StageConfig
 
 enum Keys {
 	Island,
+	MainMenu
 }
 
 
 const STAGE_PATHS := {
-	Keys.Island: "res://stages/island.tscn"
+	Keys.Island: "res://stages/island.tscn",
+	Keys.MainMenu: "res://stages/main_menu.tscn"
 }
 
 

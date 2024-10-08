@@ -25,4 +25,7 @@ shape = SubResource("SphereShape3D_j0x8f")
 [node name="FoodVisualsHolder" parent="InteractableCooker" index="2"]
 transform = Transform3D(0.869504, -0.493927, 0, 0.493927, 0.869504, 0, 0, 0, 1, -9.67085e-06, 0.527278, -0.0107499)
 
+[node name="OmniLight3D" parent="InteractableCooker" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235837, 0)
+
 [editable path="InteractableCooker"]
