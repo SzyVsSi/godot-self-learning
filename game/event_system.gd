@@ -44,7 +44,7 @@ signal MUS_play_music(music_key: MusicConfig.Keys)
 
 
 signal GAM_fast_forward_day_night_anim(time_in_hours: float)
-signal GAM_game_fade_in(fade_time: float, callback: Callable)
+signal GAM_game_fade_in(fade_time: float, callback: Callable, show_loading_label: bool)
 signal GAM_game_fade_out(fade_time: float, callback: Callable)
 
 

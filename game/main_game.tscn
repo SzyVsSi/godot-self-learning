@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpjadu1r1g8cs"]
+[gd_scene load_steps=11 format=3 uid="uid://cpjadu1r1g8cs"]
 
 [ext_resource type="Script" path="res://game/managers/stage_controller.gd" id="1_laqud"]
 [ext_resource type="Script" path="res://game/managers/hud_controller.gd" id="3_haapm"]
@@ -8,10 +8,66 @@
 [ext_resource type="PackedScene" uid="uid://uqpufgvtq3le" path="res://ui/hud/hud.tscn" id="8_072j2"]
 [ext_resource type="Script" path="res://game/managers/bulletin_controller.gd" id="9_1cv4i"]
 
+[sub_resource type="Animation" id="Animation_h4lky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xhrf3"]
+resource_name = "loading_animation"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoadingLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y84fd"]
+_data = {
+"RESET": SubResource("Animation_h4lky"),
+"loading_animation": SubResource("Animation_xhrf3")
+}
+
 [node name="MainGame" type="Node"]
 
 [node name="StageController" type="Node" parent="."]
 script = ExtResource("1_laqud")
+
+[node name="MusicController" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_7w653")
+
+[node name="SFXController" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_xqqes")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -24,18 +80,35 @@ script = ExtResource("3_haapm")
 [node name="HUD" parent="UILayer/HUDController" instance=ExtResource("8_072j2")]
 unique_name_in_owner = true
 
-[node name="MusicController" type="AudioStreamPlayer" parent="."]
-script = ExtResource("4_7w653")
+[node name="FadingLayer" type="CanvasLayer" parent="."]
+layer = 99
 
-[node name="SFXController" type="AudioStreamPlayer" parent="."]
-script = ExtResource("3_xqqes")
-
-[node name="GameFadeController" type="ColorRect" parent="."]
+[node name="GameFadeController" type="ColorRect" parent="FadingLayer" node_paths=PackedStringArray("animation_player")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 script = ExtResource("4_q1obw")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="LoadingLabel" type="Label" parent="FadingLayer/GameFadeController"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingLayer/GameFadeController"]
+libraries = {
+"": SubResource("AnimationLibrary_y84fd")
+}
+autoplay = "loading_animation"

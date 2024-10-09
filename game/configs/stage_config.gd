@@ -12,5 +12,5 @@ const STAGE_PATHS := {
 }
 
 
-static func get_stage(key: Keys) -> Node:
+static func get_stage(key: Keys) -> Stage:
 	return load(STAGE_PATHS.get(key)).instantiate()
