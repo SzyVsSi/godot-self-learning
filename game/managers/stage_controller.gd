@@ -15,3 +15,5 @@ func change_stage(key: StageConfig.Keys) -> void:
 
 	var new_stage := StageConfig.get_stage(key)
 	add_child(new_stage)
+
+	EventSystem.BUL_destroy_all_bulletins.emit()

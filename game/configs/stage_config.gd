@@ -7,8 +7,8 @@ enum Keys {
 
 
 const STAGE_PATHS := {
-	Keys.Island: "res://stages/island.tscn",
-	Keys.MainMenu: "res://stages/main_menu.tscn"
+	Keys.Island: "res://stages/island/island.tscn",
+	Keys.MainMenu: "res://stages/main_menu/main_menu.tscn"
 }
 
 

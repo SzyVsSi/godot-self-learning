@@ -3,6 +3,7 @@ extends Node
 
 signal BUL_create_bulletin(key: BulletinConfig.Keys, extra_args)
 signal BUL_destroy_bulletin(key: BulletinConfig.Keys)
+signal BUL_destroy_all_bulletins
 
 
 signal INV_try_to_pickup_item(key: ItemConfig.Keys, callback: Callable)

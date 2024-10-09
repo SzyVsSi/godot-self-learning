@@ -1,6 +1,6 @@
 [gd_scene load_steps=71 format=3 uid="uid://b2ohwqativ56y"]
 
-[ext_resource type="Script" path="res://stages/island.gd" id="1_ihhwl"]
+[ext_resource type="Script" path="res://stages/island/island.gd" id="1_ihhwl"]
 [ext_resource type="PackedScene" uid="uid://bs51i61npjbv" path="res://meshes/terrain.tscn" id="1_o8hhi"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="2_xmcsl"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_dm1mb"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b48cp400arm05"]
+
+[ext_resource type="PackedScene" uid="uid://d1bamexylw2m3" path="res://bulletins/bulletin_template.tscn" id="1_x3yc0"]
+[ext_resource type="Theme" uid="uid://c4ge05mryg5wx" path="res://resources/default_ui_theme.tres" id="2_eajq2"]
+[ext_resource type="Script" path="res://bulletins/player_menus/pause_menu.gd" id="3_wbtuh"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_dl2ra"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_v2tnw"]
+events = [SubResource("InputEventKey_dl2ra")]
+
+[node name="PauseMenu" instance=ExtResource("1_x3yc0")]
+theme = ExtResource("2_eajq2")
+script = ExtResource("3_wbtuh")
+
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+shortcut = SubResource("Shortcut_v2tnw")
+shortcut_in_tooltip = false
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Exit
+"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
