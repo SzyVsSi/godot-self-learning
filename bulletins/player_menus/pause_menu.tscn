@@ -1,28 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://b48cp400arm05"]
+[gd_scene load_steps=6 format=3 uid="uid://bo5p4evwl3ix2"]
 
-[ext_resource type="PackedScene" uid="uid://d1bamexylw2m3" path="res://bulletins/bulletin_template.tscn" id="1_x3yc0"]
-[ext_resource type="Theme" uid="uid://c4ge05mryg5wx" path="res://resources/default_ui_theme.tres" id="2_eajq2"]
-[ext_resource type="Script" path="res://bulletins/player_menus/pause_menu.gd" id="3_wbtuh"]
+[ext_resource type="PackedScene" uid="uid://bcsjsswwgb00w" path="res://bulletins/fading_bulletin/fading_bulletin_base.tscn" id="1_ks4bs"]
+[ext_resource type="Script" path="res://bulletins/player_menus/pause_menu.gd" id="2_dy2n5"]
+[ext_resource type="Theme" uid="uid://c4ge05mryg5wx" path="res://resources/default_ui_theme.tres" id="3_guf16"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_dl2ra"]
 device = -1
 keycode = 4194305
 
-[sub_resource type="Shortcut" id="Shortcut_v2tnw"]
+[sub_resource type="Shortcut" id="Shortcut_80g52"]
 events = [SubResource("InputEventKey_dl2ra")]
 
-[node name="PauseMenu" instance=ExtResource("1_x3yc0")]
-theme = ExtResource("2_eajq2")
-script = ExtResource("3_wbtuh")
-
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
+[node name="PauseMenu" instance=ExtResource("1_ks4bs")]
+theme = ExtResource("3_guf16")
+script = ExtResource("2_dy2n5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
 custom_minimum_size = Vector2(1080, 0)
@@ -39,7 +30,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-shortcut = SubResource("Shortcut_v2tnw")
+shortcut = SubResource("Shortcut_80g52")
 shortcut_in_tooltip = false
 text = "Resume"
 

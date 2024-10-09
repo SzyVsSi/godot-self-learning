@@ -53,3 +53,10 @@ signal HUD_show_hud
 
 
 signal STA_change_stage(stage_key: StageConfig.Keys)
+
+
+signal SET_change_music_volume(volume: float)
+signal SET_change_sfx_volume(volume: float)
+signal SET_change_res_scale(scale: float)
+signal SET_change_ssaa(value: bool)
+signal SET_toggle_fullscreen(value: bool)
