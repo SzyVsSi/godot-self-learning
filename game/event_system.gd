@@ -60,3 +60,5 @@ signal SET_change_sfx_volume(volume: float)
 signal SET_change_res_scale(scale: float)
 signal SET_change_ssaa(value: bool)
 signal SET_toggle_fullscreen(value: bool)
+signal SET_ask_settings_resource(resource: SettingsResource)
+signal SET_save_settings
