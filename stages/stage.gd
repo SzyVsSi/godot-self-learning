@@ -20,6 +20,9 @@ func _ready() -> void:
 		if scatter_node.has_signal("build_completed"):
 			scatter_node.build_completed.connect(scatter_node_loaded)
 
+	if scatter_nodes.is_empty():
+		loading_complete.emit()
+
 
 func scatter_node_loaded() -> void:
 	scatter_nodes_ready += 1

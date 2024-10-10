@@ -3,13 +3,15 @@ class_name MusicConfig
 
 enum Keys {
   IslandAmbience,
-  MainMenuSong
+  MainMenuSong,
+  CreditsMusic
 }
 
 
 const FILE_PATHS := {
   Keys.IslandAmbience: "res://audio/music/island_ambience.ogg",
-  Keys.MainMenuSong: "res://audio/music/transfixed_main_theme.ogg"
+  Keys.MainMenuSong: "res://audio/music/transfixed_main_theme.ogg",
+  Keys.CreditsMusic: "res://audio/music/autumn_ending_theme.ogg"
 }
 
 
