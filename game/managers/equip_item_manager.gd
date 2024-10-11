@@ -20,6 +20,11 @@ func _ready() -> void:
 func update_hotbar(new_hotbar: Array) -> void:
 	hotbar = new_hotbar
 
+	if active_hotbar_slot != null and hotbar[active_hotbar_slot] == null:
+		active_hotbar_slot = null
+		EventSystem.EQU_unequip_item.emit()
+		EventSystem.EQU_active_hotbar_slot_changed.emit(null)
+
 
 func hotkey_pressed(hotkey: int) -> void:
 	var index := hotkey - 1
