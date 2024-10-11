@@ -9,6 +9,7 @@ extends Node3D
 
 func _enter_tree() -> void:
 	EventSystem.SPA_spawn_scene.connect(spawn_scene)
+	EventSystem.SPA_spawn_vfx.connect(spawn_vfx)
 
 
 func spawn_scene(scene: PackedScene, tform: Transform3D, is_constructable := false) -> void:
@@ -20,3 +21,14 @@ func spawn_scene(scene: PackedScene, tform: Transform3D, is_constructable := fal
 		EventSystem.GAM_update_nav_mesh.emit()
 	else:
 		object_holder.add_child(object)
+
+
+func spawn_vfx(scene: PackedScene, tform: Transform3D) -> void:
+	var vfx := scene.instantiate() as GPUParticles3D
+	vfx.global_transform = tform
+	add_child(vfx)
+
+	if vfx is GPUParticles3D:
+		vfx.emitting = true
+
+	get_tree().create_timer(2, false).timeout.connect(vfx.queue_free)

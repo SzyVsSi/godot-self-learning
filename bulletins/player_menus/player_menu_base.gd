@@ -25,6 +25,7 @@ func _ready() -> void:
 		hotbar_slot.mouse_exited.connect(hide_item_info)
 
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
+	%ScrapSlot.item_scrapped.connect(hide_item_info)
 
 
 func close() -> void:
@@ -45,6 +46,7 @@ func show_item_info(inventory_slot: InventorySlot) -> void:
 		return
 	var item_resource = ItemConfig.get_item_resource(item_key)
 	item_description_label.text = "%s\n%s" % [item_resource.display_name, item_resource.description]
+	%ScrapSlot.visible = true
 
 
 func hide_item_info() -> void:
@@ -52,3 +54,4 @@ func hide_item_info() -> void:
 		return
 	
 	item_description_label.text = ""
+	%ScrapSlot.visible = false

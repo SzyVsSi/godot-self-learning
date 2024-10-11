@@ -4660,6 +4660,7 @@ shape = SubResource("CapsuleShape3D_qmg20")
 
 [node name="Hitbox" parent="." index="1"]
 hit_audio_key = 8
+hit_particles_key = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, -0.0385271, -0.999258, 0, 0.999258, -0.0385271, 0, 0.95977, -0.185473)

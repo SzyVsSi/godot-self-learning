@@ -11,7 +11,7 @@ var is_grounded := true
 @export var jump_velocity := 4.0
 @export var gravity := 0.2
 @export var mouse_sensitivity := 0.005
-@export var walking_energy_cost_per_1m := -0.05
+@export var walking_energy_cost_per_1m := -2
 @export var walking_footstep_audio_interval := 0.6
 @export var sprinting_footstep_audio_interval := 0.3
 

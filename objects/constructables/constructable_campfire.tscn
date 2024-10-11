@@ -27,5 +27,6 @@ transform = Transform3D(0.869504, -0.493927, 0, 0.493927, 0.869504, 0, 0, 0, 1, 
 
 [node name="OmniLight3D" parent="InteractableCooker" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235837, 0)
+light_energy = 0.873989
 
 [editable path="InteractableCooker"]

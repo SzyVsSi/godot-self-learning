@@ -14,6 +14,7 @@ func _ready() -> void:
 	settings_button.modulate = Color.TRANSPARENT
 	exit_button.modulate = Color.TRANSPARENT
 	get_tree().paused = true
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
 	super()
 
 

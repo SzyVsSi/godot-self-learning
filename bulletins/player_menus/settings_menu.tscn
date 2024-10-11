@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq6oq2xgtuej8"]
+[gd_scene load_steps=7 format=3 uid="uid://bq6oq2xgtuej8"]
 
 [ext_resource type="PackedScene" uid="uid://bcsjsswwgb00w" path="res://bulletins/fading_bulletin/fading_bulletin_base.tscn" id="1_lska7"]
 [ext_resource type="Script" path="res://bulletins/player_menus/settings_menu.gd" id="2_626x1"]
 [ext_resource type="Texture2D" uid="uid://bobbenk2xch23" path="res://textures/check_true.png" id="2_o5red"]
 [ext_resource type="Texture2D" uid="uid://jt2lx1t46vih" path="res://textures/check_false.png" id="3_xams1"]
 [ext_resource type="Theme" uid="uid://c4ge05mryg5wx" path="res://resources/default_ui_theme.tres" id="4_pc2oe"]
+[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="6_kybl4"]
 
 [node name="SettingsMenu" instance=ExtResource("1_lska7")]
 script = ExtResource("2_626x1")
@@ -160,5 +161,6 @@ size_flags_horizontal = 4
 theme = ExtResource("4_pc2oe")
 text = "Apply & close
 "
+script = ExtResource("6_kybl4")
 
 [connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

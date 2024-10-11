@@ -26,6 +26,7 @@ func check_hit() -> void:
 
   if not result.is_empty():
     result.collider.take_hit(weapon_item_resource)
+    EventSystem.SPA_spawn_vfx.emit(VFXConfig.get_vfx_scene(result.collider.hit_particles_key), Transform3D(Basis(), result.position))
 
 
 func change_energy() -> void:

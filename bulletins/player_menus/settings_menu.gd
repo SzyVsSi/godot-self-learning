@@ -70,10 +70,12 @@ func update_resolution_scale_label(value: float) -> void:
 
 func _on_ssaa_check_button_toggled(toggled_on: bool) -> void:
 	EventSystem.SET_change_ssaa.emit(toggled_on)
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
 
 
 func _on_full_screen_check_button_toggled(toggled_on: bool) -> void:
 	EventSystem.SET_toggle_fullscreen.emit(toggled_on)
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.UIClick)
 
 
 func _on_close_button_pressed() -> void:
