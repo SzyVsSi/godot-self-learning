@@ -13,8 +13,9 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	flee_timer.start(fleeing_time)
 
 
-func update_physics(_delta: float) -> void:
+func update_physics(delta: float) -> void:
 	animal.look_forward()
+	animal.apply_gravity(delta)
 	animal.move_and_slide()
 	
 

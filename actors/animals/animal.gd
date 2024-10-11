@@ -3,6 +3,7 @@ class_name Animal
 
 
 const ANIM_BLEND := 0.2
+const GRAVITY := 2.0
 
 
 var player_in_vision_range := false
@@ -92,6 +93,14 @@ func player_in_los() -> bool:
 
 func play_attack_audio() -> void:
 	EventSystem.SFX_play_dynamic_sfx.emit(attack_audio_key, global_position)
+
+
+func apply_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= GRAVITY * delta
+		return
+	
+	velocity.y = 0
 
 
 func _on_vision_area_body_entered(body: Node3D) -> void:

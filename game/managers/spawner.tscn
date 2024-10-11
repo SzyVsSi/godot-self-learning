@@ -5,4 +5,6 @@
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_a354f")
 
-[node name="Items" type="Node3D" parent="."]
+[node name="ObjectHolder" type="Node3D" parent="."]
+
+[node name="ConstructableHolder" type="Node3D" parent="."]

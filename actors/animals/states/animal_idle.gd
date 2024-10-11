@@ -14,7 +14,8 @@ func enter(_previous_state_path: String, _data := {}) -> void:
   animal.play_animal_animation(animal.idle_animations.pick_random())
 
 
-func update_physics(_delta: float) -> void:
+func update_physics(delta: float) -> void:
+  animal.apply_gravity(delta)
   if animal.is_aggressive and animal.can_see_player():
     state_finished.emit(CHASE)
 

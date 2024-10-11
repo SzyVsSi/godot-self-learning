@@ -33,7 +33,7 @@ signal EQU_active_hotbar_slot_changed(slot: Variant)
 signal EQU_delete_equipped_item()
 
 
-signal SPA_spawn_scene(scene: PackedScene, transform: Transform3D)
+signal SPA_spawn_scene(scene: PackedScene, transform: Transform3D, is_constructable: bool)
 
 
 signal SFX_play_sfx(sfx_key: SFXConfig.Keys)
@@ -46,6 +46,7 @@ signal MUS_play_music(music_key: MusicConfig.Keys)
 signal GAM_fast_forward_day_night_anim(time_in_hours: float)
 signal GAM_game_fade_in(fade_time: float, callback: Callable, show_loading_label: bool)
 signal GAM_game_fade_out(fade_time: float, callback: Callable)
+signal GAM_update_nav_mesh
 
 
 signal HUD_hide_hud

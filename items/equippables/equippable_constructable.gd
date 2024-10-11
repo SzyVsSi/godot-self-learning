@@ -63,7 +63,7 @@ func try_to_construct() -> void:
   EventSystem.EQU_delete_equipped_item.emit()
   constructable_area.hide()
   set_process(false)
-  EventSystem.SPA_spawn_scene.emit(ItemConfig.get_constructable_scene(constructable_item_key), constructable_area.global_transform)
+  EventSystem.SPA_spawn_scene.emit(ItemConfig.get_constructable_scene(constructable_item_key), constructable_area.global_transform, true)
   is_constructing = true
   EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.Build)
 

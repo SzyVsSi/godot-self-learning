@@ -15,9 +15,11 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	animal.play_animal_animation("Walk")
 
 
-func update_physics(_delta: float) -> void:
+func update_physics(delta: float) -> void:
 	animal.look_forward()
+	animal.apply_gravity(delta)
 	animal.move_and_slide()
+
 	if animal.is_aggressive and animal.can_see_player():
 		state_finished.emit(CHASE)
 
